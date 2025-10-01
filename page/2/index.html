@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MrQ</title><meta name="author" content="Qs"><meta name="copyright" content="Qs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="MrQ">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="MrQ">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar-icon.png">
+<meta property="article:author" content="Qs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar-icon.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/avatar-icon.png"><link rel="canonical" href="http://example.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MrQ',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 网站</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/1/"><i class="fa-fw fas fa-images"></i><span> 素材</span></a></li><li><a class="site-page child" href="/2/"><i class="fa-fw fas fa-screwdriver-wrench"></i><span> 工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/index_img.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/avatar.png" alt="Logo"><span class="site-name">MrQ</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 网站</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/1/"><i class="fa-fw fas fa-images"></i><span> 素材</span></a></li><li><a class="site-page child" href="/2/"><i class="fa-fw fas fa-screwdriver-wrench"></i><span> 工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">MrQ</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="/3183751346@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E5%8F%B3%E6%97%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88DMSXL%EF%BC%89/" title="右旋字符串（DMSXL）">右旋字符串（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：55. 右旋字符串(第八期模拟笔试) 自己的解法：代码：就是字符串后k个要移到前面，整个字符串颠倒一下，就实现了。但是问题是，字符串整体颠倒后，前k个是倒叙的，后面剩下的也是倒叙的，既然如此那就再颠倒两次就好了。 1234567891011121314151617181920212223242526#include&lt;iostream&gt;#include&lt;string&gt;using namespace std;// 翻转函数void f(string&amp; str, int i, int j)&#123;    while(i &lt; j)&#123;        int temp = str[i];        str[i] = str[j];        str[j] = temp;        i++;        j--;    &#125;&#125;int main()&#123;    int k = 0;    cin&gt;&gt; k;    string str = &quot;&quot;;    cin&gt;&g...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%88DMSXL%EF%BC%89/" title="四数之和（DMSXL）">四数之和（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：18. 四数之和 - 力扣（LeetCode） 自己的解法：代码：因为刚做过三数之和，所以我的第一想法是在嵌套一个循环就好了。实践的时候还是有一些地方要注意的: &#x20;第7行，需要转换为int类型的n，这是因为size()返回的是size_t是无符号的int，当出现例如1-3这种出现负值的结果，会变成(2^32- 1) - 1，一个很大的数，然后进行逻辑判断时候由于!&#x3D;0就会判定为true。（三数之和没出现这种情况是因为人家贴心的将最小值设置为3） 在判定四数之和与target关系时，需要将其中一个数强制类型转换为long。这是因为测试用例里有很大的数，导致四数之和大于INT_MAX。如果有一个类型是long，在进行相加时，会进行整型的升型，中间结果全是long，这样就不会溢出int了。 1234567891011121314151617181920212223242526272829class Solution &#123;public:    vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&gt...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E5%9B%9B%E6%95%B0%E7%9B%B8%E5%8A%A0II%EF%BC%88DMSXL%EF%BC%89/" title="四数相加II（DMSXL）">四数相加II（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：454. 四数相加 II - 力扣（LeetCode） 自己的解法：代码：最直接的想法就是嵌套四层循环，那么时间复杂度就是O(n^4)。但是我们学了哈希表后，我们就可以把一些内容率先放到哈希表中，这样就可减少嵌套循环的次数。 我刚拿到这道题，想的只是把其中一个数组的内容变成哈希表使时间复杂度就是O(n^3)。但是后面提交发现时间超时。 然后又审查了一下，发现其实可以把其中两个数组相加的结果用哈希表存一下，这样可以变成两个双嵌套循环，时间复杂度就是O(2*n^2)，也就是O(n^2)。 1234567891011121314151617181920212223// 只去去掉一个循环class Solution &#123;public:    int fourSumCount(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2, vector&lt;int&gt;&amp; nums3, vector&lt;int&gt;&amp; nums4) &#123;        unordered_map&lt;i...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E5%AE%9E%E7%8E%B0%20strStr()%EF%BC%88DMSXL%EF%BC%89/" title="实现 strStr()（DMSXL）">实现 strStr()（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：28. 找出字符串中第一个匹配项的下标 - 力扣（LeetCode） 自己的解法：代码：寻找字串的经典算法KMP，学校课堂上有教过，否则第一次写的话恐怕很难写出来这个算法。 他的核心思想是，用于匹配字串的字符串可以提前做一些工作 1、这个工作的思想是储存一个字符串，前半部分和后部分最大的重合，比如needle的0-1、0-2、……、0-n字串，然后用一个数组存起来（就是4-18行）。 2、这些工作的作用是当前字符（i与j）若是匹配失败，则needle的指针j可以跳到下一个最大能满足i之前元素的下标（体现就是23到28行）。 然后他是有两种实现方式获取record数组（大家一般都叫next数组，更贴合他的作用）但是我是由于记得不大清楚，按照自己的思路实现的，这里既不是同一-1的方式，也不是next[0] &#x3D; 0的方式，把他俩的一些特征给缝合了。 123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public:    int strStr(string...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E5%BC%80%E5%8F%91%E5%95%86%E8%B4%AD%E4%B9%B0%E5%9C%9F%E5%9C%B0%EF%BC%88DMSXL%EF%BC%89/" title="开发商购买土地（DMSXL）">开发商购买土地（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：44. 开发商购买土地(第五期模拟笔试) 自己的解法：代码：个人感觉是“区间和“题目的升级版，首先是划分方式有两种横向和纵向，他们的处理方式都是一样的。对于纵向来说，每次划分有两个区间，每个区间要算和；怎么算和呢？对于纵向，先把每一列的数据加到一起（这一步可以放到输入土地的部分，我们会得到ver数组，即每一列的总和数组）；然后再使用区间和的那种方式（得到了一个demo数组用于计算区间和），快速计算两个区间的和。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758#include&lt;iostream&gt;#include&lt;vector&gt;#include&lt;climits&gt;using namespace std;// 用于计算区间和的差值int f(int a, int b)&#123;    if(a &gt; b) return a -b;    else return b -a;&#...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E5%BF%AB%E4%B9%90%E6%95%B0%EF%BC%88DMSXL%EF%BC%89/" title="快乐数（DMSXL）">快乐数（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：202. 快乐数 - 力扣（LeetCode） 自己的解法：代码：不是快乐数的时候，会陷入死循环，如何意识到已经进入了死循环就是这道题的关键。使用hash表可以在O(1)的时间里找到这个数是否循环过，其实这里使用unordered_set就行了，用于记录这个数循环过。 123456789101112131415161718192021class Solution &#123;public:    bool isHappy(int n) &#123;        unordered_map&lt;int, int&gt; record;        while(n != 1)&#123;            if(record.find(n) != record.end()) return false;            int sum = 0;            int temp_n = n;            while(n!=0)&#123;                int temp = n % 10;                n /= 1...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E6%9B%BF%E6%8D%A2%E6%95%B0%E5%AD%97%EF%BC%88DMSXL%EF%BC%89/" title="替换数字（DMSXL）">替换数字（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：54. 替换数字(第八期模拟笔试) 自己的解法：代码：直接想法就是，依次遍历s，不是数字就添加到输出字符串中，是数字就添加“number”。 123456789101112131415161718192021#include&lt;iostream&gt;#include&lt;string&gt;using namespace std;int main()&#123;    string s = &quot;&quot;;    cin&gt;&gt; s;    string ret = &quot;&quot;;    for(int i = 0; i &lt; s.size(); i++)&#123;        if(s[i] &gt;= &#x27;0&#x27; &amp;&amp; s[i] &lt;= &#x27;9&#x27;)&#123;            ret += &quot;number&quot;;        &#125;        else ret += s[i];    &#125;    cout&lt;&lt; ret&...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%EF%BC%88DMSXL%EF%BC%89/" title="有效的字母异位词（DMSXL）">有效的字母异位词（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：242. 有效的字母异位词 - 力扣（LeetCode） 自己的解法：代码：这道题很直白的是hash映射，把字母映射一下，hash表就是字母表，然后统计每个字母的个数，对于第二个字符串遍历的时候，进行减操作，一旦数量小于0就返回false。（我不想这么做，这种做法我会放到代码随想录做法里，好处是时间复杂度为O(n)） 但是这道题我使用的数据结构是multiset，他的底层实现不是hash表。只是我认为使用multiset会很方便所以我用了。其实unordered_map是基于hash表实现的，插入删除时间复杂度只有O(1)，使用unordered_map不如直接使用数组hash 26个英文字母。 1234567891011121314151617181920212223class Solution &#123;public:    bool isAnagram(string s, string t) &#123;        if(s.size() != t.size()) return false;        multiset&lt;int&gt; record; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II%EF%BC%88DMSXL%EF%BC%89/" title="环形链表II（DMSXL）">环形链表II（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：142. 环形链表 II - 力扣（LeetCode） 自己的解法：代码：无。 这道题有两个关键点：1、是否有环；2、环的在链表里第一个节点在哪。 判断有无环很简单，一个快指针，一个慢指针，快指针每次走两个，慢指针每次走一个，如果有环快的就会追上慢的。 判断开始节点，这个确实没想出来，这个需要公式推导（详细推导可以看代码随想录的分析代码随想录）。这里给出结论。快慢指针相遇后，让一个指针q从这里出发，每次走一个。然后同时让一个指针p从链表头出发，每次走一个，他们相遇的地方就是环的起点。 代码随想录解法：两个while依次解决，问题的两个关键。 123456789101112131415161718192021222324252627282930313233/** * Definition for singly-linked list. * struct ListNode &#123; *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/01/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0%EF%BC%88DMSXL%EF%BC%89/" title="移除元素（DMSXL）">移除元素（DMSXL）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="content">题目：27. 移除元素 自己的解法：代码：题目要求空间复杂度是O(1)也就是有限空间。这里有一个很好的想法就是有一个慢的索引指向要保留的数据，一个快的索引用来遍历所有元素。 12345678910111213141516class Solution &#123;public:    int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123;        int slow = 0;        int fast = slow;        while(fast &lt; nums.size())&#123;            if(nums[fast] != val)&#123;                nums[slow++] = nums[fast];            &#125;            fast++;        &#125;        return slow;    &#125;&#125;;  复杂度分析：时间复杂度：O(n)。由于是无序数组，要寻找元素只能选择遍...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Qs</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/95qs"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="/3183751346@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/01/%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%88DMSXL%EF%BC%89/" title="三数之和（DMSXL）">三数之和（DMSXL）</a><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/01/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9%EF%BC%88DMSXL%EF%BC%89/" title="两两交换链表中的节点（DMSXL）">两两交换链表中的节点（DMSXL）</a><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/01/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86%EF%BC%88DMSXL%EF%BC%89/" title="两个数组的交集（DMSXL）">两个数组的交集（DMSXL）</a><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/01/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%88DMSXL%EF%BC%89/" title="两数之和（DMSXL）">两数之和（DMSXL）</a><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%88DMSXL%EF%BC%89/" title="二分查找（DMSXL）">二分查找（DMSXL）</a><time datetime="2025-10-01T15:23:43.000Z" title="发表于 2025-10-01 23:23:43">2025-10-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%B7%E9%A2%98/"><span class="card-category-list-name">刷题</span><span class="card-category-list-count">27</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">5</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 1.34em; color: #99a3b0">数组</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 1.42em; color: #99a6b7">哈希表</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/" style="font-size: 1.5em; color: #99a9bf">代码随想录</a> <a href="/tags/SSH/" style="font-size: 1.1em; color: #999">SSH</a> <a href="/tags/KMP/" style="font-size: 1.18em; color: #999ca1">KMP</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.42em; color: #99a6b7">字符串</a> <a href="/tags/Linux/" style="font-size: 1.26em; color: #999fa8">Linux</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.26em; color: #999fa8">服务器</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/Debian/" style="font-size: 1.1em; color: #999">Debian</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.42em; color: #99a6b7">链表</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 1.5em; color: #99a9bf">刷题</a> <a href="/tags/VPN/" style="font-size: 1.1em; color: #999">VPN</a> <a href="/tags/NFS/" style="font-size: 1.1em; color: #999">NFS</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">27</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">32</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-01T16:17:37.059Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Qs</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["风啊，请带我走吧……"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["风啊，请带我走吧……"])
+}
+typedJSFn.run(subtitleType)</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
