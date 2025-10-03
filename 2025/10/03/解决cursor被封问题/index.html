@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>解决cursor被封问题 | MrQ</title><meta name="author" content="Qs"><meta name="copyright" content="Qs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最近使用cursor可能过于频繁，导致cursor被封禁到月底，本来以为是账户被封，但是回到家后发现还是能用cursor，于是怀疑是ip上的封禁。当然最后也验证了我的猜想确实是IP封禁。  解决方案：使用代理，让其以为ip变了 Cursor代理前提条件：你本机已经能访问 Google 的干净 IP 科学上网要支持虚拟网卡或 TUN 模式（我这里用了 Clash&#x2F;Trojan&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决cursor被封问题">
+<meta property="og:url" content="https://95qs.github.io/2025/10/03/%E8%A7%A3%E5%86%B3cursor%E8%A2%AB%E5%B0%81%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="MrQ">
+<meta property="og:description" content="最近使用cursor可能过于频繁，导致cursor被封禁到月底，本来以为是账户被封，但是回到家后发现还是能用cursor，于是怀疑是ip上的封禁。当然最后也验证了我的猜想确实是IP封禁。  解决方案：使用代理，让其以为ip变了 Cursor代理前提条件：你本机已经能访问 Google 的干净 IP 科学上网要支持虚拟网卡或 TUN 模式（我这里用了 Clash&#x2F;Trojan&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://95qs.github.io/img/avatar-icon.png">
+<meta property="article:published_time" content="2025-10-03T06:16:07.000Z">
+<meta property="article:modified_time" content="2025-10-03T06:30:56.927Z">
+<meta property="article:author" content="Qs">
+<meta property="article:tag" content="cursor">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://95qs.github.io/img/avatar-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "解决cursor被封问题",
+  "url": "https://95qs.github.io/2025/10/03/%E8%A7%A3%E5%86%B3cursor%E8%A2%AB%E5%B0%81%E9%97%AE%E9%A2%98/",
+  "image": "https://95qs.github.io/img/avatar-icon.png",
+  "datePublished": "2025-10-03T06:16:07.000Z",
+  "dateModified": "2025-10-03T06:30:56.927Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Qs",
+      "url": "https://95qs.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/avatar-icon.png"><link rel="canonical" href="https://95qs.github.io/2025/10/03/%E8%A7%A3%E5%86%B3cursor%E8%A2%AB%E5%B0%81%E9%97%AE%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '解决cursor被封问题',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 网站</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/1/"><i class="fa-fw fas fa-images"></i><span> 素材</span></a></li><li><a class="site-page child" href="/2/"><i class="fa-fw fas fa-screwdriver-wrench"></i><span> 工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/avatar.png" alt="Logo"><span class="site-name">MrQ</span></a><a class="nav-page-title" href="/"><span class="site-name">解决cursor被封问题</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 网站</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/1/"><i class="fa-fw fas fa-images"></i><span> 素材</span></a></li><li><a class="site-page child" href="/2/"><i class="fa-fw fas fa-screwdriver-wrench"></i><span> 工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">解决cursor被封问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-03T06:16:07.000Z" title="发表于 2025-10-03 14:16:07">2025-10-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-03T06:30:56.927Z" title="更新于 2025-10-03 14:30:56">2025-10-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%97%AE%E9%A2%98/">问题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p>最近使用cursor可能过于频繁，导致cursor被封禁到月底，本来以为是账户被封，但是回到家后发现还是能用cursor，于是怀疑是ip上的封禁。当然最后也验证了我的猜想确实是IP封禁。</p>
+</blockquote>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>使用代理，让其以为ip变了</p>
+<h2 id="Cursor代理"><a href="#Cursor代理" class="headerlink" title="Cursor代理"></a>Cursor代理</h2><h3 id="前提条件："><a href="#前提条件：" class="headerlink" title="前提条件："></a>前提条件：</h3><p>你本机已经能访问 Google 的干净 IP</p>
+<p>科学上网要支持虚拟网卡或 TUN 模式（我这里用了 Clash&#x2F;Trojan&#x2F;V2Ray 之类的，能给本地启一个 socks5 代理就行）</p>
+<p>本例中我假设 socks5 代理地址是：127.0.0.1:7890</p>
+<h3 id="修改setting-json"><a href="#修改setting-json" class="headerlink" title="修改setting.json"></a>修改setting.json</h3><p>1、打开 Cursor 用户设置</p>
+<p>2、快捷键 Ctrl+Shift+P</p>
+<p>3、输入 “user”</p>
+<p>4、选中打开的 settings.JSON（就是那个纯 JSON 格式的配置文件）</p>
+<p>5、在 JSON 里添加或修改下面几行：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;http.proxy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;socks5://127.0.0.1:7890&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;http.proxyStrictSSL&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;http.proxySupport&quot;</span><span class="punctuation">:</span> <span class="string">&quot;on&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p>解释一下：</p>
+<p>http.proxy：告诉 Cursor 用本地的 socks5 代理去访问外网</p>
+<p>http.proxyStrictSSL：关闭严格证书校验，避免一些自签或中间人干预导致的连接失败</p>
+<p>http.proxySupport：开启代理支持</p>
+<h3 id="修改HTTP-compatibility-Mode"><a href="#修改HTTP-compatibility-Mode" class="headerlink" title="修改HTTP compatibility Mode"></a>修改HTTP compatibility Mode</h3><p>再去 Cursor 的 Network 设置里，把 HTTP compatibility Mode 改成 HTTP&#x2F;1.1</p>
+<p>不改这个的话，Cursor 还是会走它默认的 HTTP&#x2F;2&#x2F;QUIC 路径，依旧会被识别成国内访问，报“区域不支持”</p>
+<p>改成 HTTP&#x2F;1.1 后，代理就能生效，流量全走 socks5，区域限制就绕过了</p>
+<h3 id="重启Cursor"><a href="#重启Cursor" class="headerlink" title="重启Cursor"></a>重启Cursor</h3><p>重启 Cursor，就能正常访问了～</p>
+<p>如果还报错，再检查一下代理是不是活着、端口对不对，以及本地科学上网配置有没有开虚拟网卡／tun 模式。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li><p>其实本质就是把 Cursor 默认的直连流量改成走本地代理，让它认不出你是“国内 IP”</p>
+</li>
+<li><p>如果你用的是 HTTP 代理（不是 socks5），可以类似地把 http.proxy 换成 <a target="_blank" rel="noopener" href="http://127.0.0.1/">http://127.0.0.1</a>:端口。</p>
+</li>
+<li><p>一定要保证你的代理能解析并转发到 Google&#x2F;Fastly&#x2F;AWS 这些境外节点。否则会报超时或连不上。</p>
+</li>
+<li><p>这种方法理论上对其他依赖 HTTP&#x2F;HTTPS 的插件也适用，给 VS Code 全局代理也能解决不少奇怪的网络问题</p>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://linux.do/t/topic/823065">解决cursor 被封问题 - 资源荟萃 - LINUX DO</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://95qs.github.io">Qs</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://95qs.github.io/2025/10/03/%E8%A7%A3%E5%86%B3cursor%E8%A2%AB%E5%B0%81%E9%97%AE%E9%A2%98/">https://95qs.github.io/2025/10/03/解决cursor被封问题/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://95qs.github.io" target="_blank">MrQ</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cursor/">cursor</a></div><div class="post-share"><div class="social-share" data-image="/img/avatar-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/10/02/Hexo%E5%AE%9E%E7%8E%B0%E9%83%A8%E5%88%86%E6%96%87%E7%AB%A0%E4%B8%8D%E5%8F%AF%E8%A7%81/" title="Hexo实现部分文章不可见"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hexo实现部分文章不可见</div></div><div class="info-2"><div class="info-item-1"> 本人快临近找实习，需要刷题。刷题的过程自己也想记录在自己的博客，但是刷题的文章会影响首页的内容展示。于是想实现：让部分文章在首页隐藏。  我们是基于hexo-hide-posts这个Hexo 插件实现的 安装下载插件 1pnpm install hexo-hide-posts --save  使用在文章的 front-matter 中添加 hidden: true 即可隐藏文章。如： 1234567---title: &#x27;Lorem Ipsum&#x27;date: &#x27;2019/8/10 11:45:14&#x27;hidden: true---Lorem ipsum dolor sit amet, consectetur adipiscing elit.  配置在你的站点 _config.yml 中添加如下配置： 12345678910111213141516171819hide_posts:  # 是否启用 hexo-hide-posts  enable: true  # 隐藏文章的 front-matter 标识，也可以改成其他你喜欢的名字  filte...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Qs</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/95qs"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="/3183751346@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">解决方案：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cursor%E4%BB%A3%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">Cursor代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">前提条件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9setting-json"><span class="toc-number">2.2.</span> <span class="toc-text">修改setting.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9HTTP-compatibility-Mode"><span class="toc-number">2.3.</span> <span class="toc-text">修改HTTP compatibility Mode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%90%AFCursor"><span class="toc-number">2.4.</span> <span class="toc-text">重启Cursor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips"><span class="toc-number">3.</span> <span class="toc-text">Tips</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/03/%E8%A7%A3%E5%86%B3cursor%E8%A2%AB%E5%B0%81%E9%97%AE%E9%A2%98/" title="解决cursor被封问题">解决cursor被封问题</a><time datetime="2025-10-03T06:16:07.000Z" title="发表于 2025-10-03 14:16:07">2025-10-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/02/Hexo%E5%AE%9E%E7%8E%B0%E9%83%A8%E5%88%86%E6%96%87%E7%AB%A0%E4%B8%8D%E5%8F%AF%E8%A7%81/" title="Hexo实现部分文章不可见">Hexo实现部分文章不可见</a><time datetime="2025-10-01T17:02:18.000Z" title="发表于 2025-10-02 01:02:18">2025-10-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/03/%E9%85%8D%E7%BD%AEDebian%20Server/" title="配置Debian Server">配置Debian Server</a><time datetime="2025-07-02T16:00:00.000Z" title="发表于 2025-07-03 00:00:00">2025-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/29/linux(%E6%97%A0%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83)%E4%B8%8A%E4%BD%BF%E7%94%A8Clash%E6%88%96Mihomo%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" title="linux服务器上配置Clash或Mihomo">linux服务器上配置Clash或Mihomo</a><time datetime="2025-06-28T16:00:00.000Z" title="发表于 2025-06-29 00:00:00">2025-06-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/28/Linux%20Servers%E4%BD%BF%E7%94%A8NFS%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/" title="使用NFS共享文件">使用NFS共享文件</a><time datetime="2025-06-27T16:00:00.000Z" title="发表于 2025-06-28 00:00:00">2025-06-28</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Qs</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
